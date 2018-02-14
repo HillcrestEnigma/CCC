@@ -7,9 +7,9 @@ dmojistan.sort()
 pegland = input("").split(" ")
 pegland.sort()
 
-if dmojistan == ['1', '4', '5'] and pegland == ['2', '4', '6'] and question == "1":
-	print("12")
-	sys.exit(0)
+# if dmojistan == ['1', '4', '5'] and pegland == ['2', '4', '6'] and question == "1":
+# 	print("12")
+# 	sys.exit(0)
 
 allList = []
 for i in dmojistan:
@@ -25,18 +25,26 @@ curP = [int(i) for i in pegland[:]]
 curP.sort()
 
 if question == "1":
-	strong = allList[int(len(allList) / 2):]
-	weak = allList[:int(len(allList) / 2)]
-	minList = []
-	for i in weak:
-		for j in strong:
-			if not i[0] == j[0]:
-				minList.append(i[1])
-				strong.remove(j)
-				break
-	print(sum(minList))
+	# strong = allList[int(len(allList) / 2):]
+	# weak = allList[:int(len(allList) / 2)]
+	# minList = []
+	# for i in weak:
+	# 	for j in strong:
+	# 		if not i[0] == j[0]:
+	# 			minList.append(i[1])
+	# 			strong.remove(j)
+	# 			break
+	# print(sum(minList))
+	sumValue = 0
+	for i in range(0, len(curD)):
+		sumValue += max(curD[i], curP[i])
+	print(sumValue)
 else:
 	sumValue = 0
 	for i in range(0, len(curD)):
 		sumValue += max(curD[i], curP[::-1][i])
 	print(sumValue)
+	# curP = curP[::-1]
+	# for i in range(0, len(curP)):
+	# 	sumValue += max(curP[i], curD[i])
+	# print(sumValue)
